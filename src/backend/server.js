@@ -33,7 +33,7 @@ const Schema = mongoose.Schema;
 const employeeSchema = new Schema({
     fName: String,
     sName: String,
-    img: String
+    locImg: String
 });
 
 //Emp model
@@ -47,7 +47,7 @@ app.post('/api/employees', (req, res) => {
     employeeModel.create({
         fName: req.body.fName,
         sName: req.body.sName,
-        img: req.body.img
+        locImg: req.body.locImg
     })
     res.json("Post Recieved");
 })

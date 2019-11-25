@@ -7,12 +7,13 @@ class AddEmployee extends React.Component {
         this.state = {
             FName: '',
             SName: '',
-            Image: ''
+            Base64Image: ''
         };
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleEmployeeFNameChange = this.handleEmployeeFNameChange.bind(this);
         this.handleEmployeeSNameChange = this.handleEmployeeSNameChange.bind(this);
-        this.handleEmployeeImageChange = this.handleEmployeeImageChange.bind(this);
+        this.handleImageChange = this.handleImageChange.bind(this);
+
     }
 
     handleEmployeeFNameChange(e) {
@@ -23,21 +24,36 @@ class AddEmployee extends React.Component {
         this.setState({ SName: e.target.value });
     }
 
-    handleEmployeeImageChange(e) {
-        this.setState({ Image: e.target.value });
+    //Local Images
+    getBase64(file, cb) {
+        let reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = function () {
+            cb(reader.result)
+        };
+        reader.onerror = function (error) {
+            console.log('Error: ', error);
+        };
     }
 
+    handleImageChange(e) {
+        alert(e.target.files[0]);
+        this.getBase64(e.target.files[0], (base64) => {
+            this.setState({ Base64Image: base64 });
+        })
+    }
+    
     //Event when button pressed to add employee
     handleSubmit(e) {
-        alert(this.state.FName + "      " + this.state.SName
-            + "       " + this.state.Image);
-        e.preventDefault();
+        // alert(this.state.FName + "      " + this.state.SName
+        //     + "       " + this.state.Base64Image);
+        // e.preventDefault();
 
         //To hold the object been sent
         const newEmp = {
             fName: this.state.FName,
             sName: this.state.SName,
-            img: this.state.Image
+            locImg: this.state.Base64Image
         }
         //Post(to server, this object)
         axios.post('http://localhost:4000/api/employees', newEmp)
@@ -47,7 +63,7 @@ class AddEmployee extends React.Component {
         this.setState({
             FName: '',
             SName: '',
-            Image: ''
+            Base64Image: ''
         });
     }
 
@@ -56,6 +72,7 @@ class AddEmployee extends React.Component {
             <div>
                 <h1>Add Employee Form</h1>
                 <form onSubmit={this.handleSubmit}>
+                    {/* First Name */}
                     <div className='form-group'>
                         <label>First Name:</label>
                         <input
@@ -65,6 +82,7 @@ class AddEmployee extends React.Component {
                             onChange={this.handleEmployeeFNameChange}
                         ></input>
                     </div>
+                    {/* Surname */}
                     <div className='form-group'>
                         <label>Surname</label>
                         <input
@@ -74,14 +92,17 @@ class AddEmployee extends React.Component {
                             onChange={this.handleEmployeeSNameChange}
                         ></input>
                     </div>
-                    <div className='form-group'>
-                        <label>Image</label>
-                        <textarea
-                            row='3'
+                    {/*  */}
+                    <div>
+
+                    </div>
+                    <div>
+                        <label>Real Image Upload</label>
+                        <input
+                            type='file'
                             className='form-control'
-                            value={this.state.Image}
-                            onChange={this.handleEmployeeImageChange}
-                        ></textarea>
+                            onChange={this.handleImageChange}
+                        ></input>
                     </div>
                     <div>
                         <input
@@ -90,6 +111,7 @@ class AddEmployee extends React.Component {
                         </input>
                     </div>
                 </form>
+                <img src={this.state.Base64Image}></img>
             </div>
         );
     }

@@ -52,8 +52,7 @@ class Edit extends React.Component {
         //To hold the object been sent
         const newEmp = {
             fName: this.state.FName,
-            sName: this.state.SName,
-            img: this.state.Image
+            sName: this.state.SName
         }
         //Post(to server, this object)
         axios.put('http://localhost:4000/api/employees/'+this.state._id, newEmp)
@@ -62,8 +61,7 @@ class Edit extends React.Component {
         //Reset state
         this.setState({
             FName: '',
-            SName: '',
-            Image: ''
+            SName: ''
         });
     }
 
@@ -89,15 +87,6 @@ class Edit extends React.Component {
                         value={this.state.SName}
                         onChange={this.handleEmployeeSNameChange}
                     ></input>
-                </div>
-                <div className='form-group'>
-                    <label>Image</label>
-                    <textarea
-                        row='3'
-                        className='form-control'
-                        value={this.state.Image}
-                        onChange={this.handleEmployeeImageChange}
-                    ></textarea>
                 </div>
                 <div>
                     <input
