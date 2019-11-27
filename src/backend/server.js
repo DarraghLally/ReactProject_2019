@@ -96,3 +96,13 @@ app.put('/api/employees/:id',(req,res)=>{
             res.json(data);
         })
 })
+
+//Search
+app.get('/api/search/:employee', (req,res)=>{
+    console.log(req.params.employee);
+
+    employeeModel.findOne({fName:{$regex: new RegExp(req.params.employee, 'i')}}, (error,data)=>{
+        //console.log(data)
+        res.json({data});
+    })
+})

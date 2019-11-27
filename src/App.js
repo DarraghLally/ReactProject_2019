@@ -13,16 +13,19 @@ import Home from './components/home'
 import CurrentEmployees from './components/currentEmployees'
 import AddEmployee from './components/addEmployee'
 import Edit from './components/edit'
+import Search from './components/search'
 
 function App() {
   return (
     <BrowserRouter>
       <div className="App">
-        <Navbar bg="primary" variant="dark">
+        <Navbar bg="dark" variant="dark" sticky="top">
+        <Navbar.Brand href="#home">Employee Database</Navbar.Brand>
           <Nav className="mr-auto">
             <Nav.Link href="/">Home</Nav.Link>
             <Nav.Link href="/currentEmployees">Current Employee's</Nav.Link>
             <Nav.Link href="/addEmployee">Add Employee</Nav.Link>
+            <Nav.Link href="/search">Search</Nav.Link>
           </Nav>
         </Navbar>
         <Switch>
@@ -30,6 +33,7 @@ function App() {
           <Route path="/currentEmployees" component={CurrentEmployees} />
           <Route path="/addEmployee" component={AddEmployee} />
           <Route path="/edit/:id" component={Edit} />
+          <Route path="/search" component={Search} />
         </Switch>
       </div>
     </BrowserRouter>
