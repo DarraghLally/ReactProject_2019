@@ -41,7 +41,6 @@ class AddEmployee extends React.Component {
         };
     }
     handleImageChange(e) {
-        alert(e.target.files[0]);
         this.getBase64(e.target.files[0], (base64) => {
             this.setState({ Base64Image: base64 });
         })
@@ -91,7 +90,6 @@ class AddEmployee extends React.Component {
     render() {
         return (
             <div>
-                <h1>Add Employee Form</h1>
                 <form onSubmit={this.handleSubmit}>
                     {/* First Name */}
                     <div className='form-group'>

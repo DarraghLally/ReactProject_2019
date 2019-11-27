@@ -7,7 +7,8 @@ class Home extends React.Component {
     return (
       <div className="App">
         <h1>DL Database Interface</h1> <br/>
-        <h2>Current time{new Date().toLocaleTimeString()}</h2>
+        <h2>Current time: {new Date().toLocaleTimeString()}</h2>
+        <h2>Current outside temp: {new Date().toLocaleTimeString()}</h2>
       </div>
     );
   }

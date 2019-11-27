@@ -24,7 +24,7 @@ class EmployeeItem extends React.Component {
       <div className="App">
 
         <Card style={{ width: '18rem' }}>
-          <Card.Img className="defaultImage" variant="top" src={this.props.employee.locImg} />
+          <Card.Img className="defaultImage" variant="top" border-radius="8px" width="100px" height="100px" src={this.props.employee.locImg} />
           <Card.Body>
             <Card.Title></Card.Title>        
             <Card.Text>
