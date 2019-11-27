@@ -47,14 +47,13 @@ class Search extends React.Component {
     render() {
         return (
             <div className="App">
-                <h1>Search</h1> <br />
+                <br />
                 <div>
                     <form onSubmit={this.handleSubmit}>
                         <div>
                             <input
                                 type="text"
                                 placeholder="Search"
-                                value={this.state.SearchItem}
                                 onChange={this.handleSubmitSearchEmployee}
                             ></input>
                             <input
@@ -62,14 +61,10 @@ class Search extends React.Component {
                                 value="Search"
                             ></input>
                         </div>
-                        <div>
-
-                        </div>
                     </form>
                 </div>
 
                 <div>
-                    <h1> {this.state.employees.fName} {this.state.employees.sName}</h1>
                     <div className="App">
                         <Card style={{ width: '18rem' }}>
                             <Card.Img className="defaultImage" variant="top" border-radius="8px" width="100px" height="100px" src={this.state.employees.locImg} />
