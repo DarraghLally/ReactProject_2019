@@ -7,19 +7,24 @@ class AddEmployee extends React.Component {
         this.state = {
             FName: '',
             SName: '',
-            Base64Image: ''
+            Base64Image: '',
+            Department: '',
+            Position: '',
+            Salary: ''
         };
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleEmployeeFNameChange = this.handleEmployeeFNameChange.bind(this);
         this.handleEmployeeSNameChange = this.handleEmployeeSNameChange.bind(this);
         this.handleImageChange = this.handleImageChange.bind(this);
-
+        this.handleEmployeeDepartmentChange = this.handleEmployeeDepartmentChange.bind(this);
+        this.handleEmployeePositionChange = this.handleEmployeePositionChange.bind(this);
+        this.handleEmployeeSalaryChange = this.handleEmployeeSalaryChange.bind(this);
     }
-
+    //First Name
     handleEmployeeFNameChange(e) {
         this.setState({ FName: e.target.value });
     }
-
+    //Surname
     handleEmployeeSNameChange(e) {
         this.setState({ SName: e.target.value });
     }
@@ -35,25 +40,38 @@ class AddEmployee extends React.Component {
             console.log('Error: ', error);
         };
     }
-
     handleImageChange(e) {
         alert(e.target.files[0]);
         this.getBase64(e.target.files[0], (base64) => {
             this.setState({ Base64Image: base64 });
         })
     }
-    
+
+    //Department
+    handleEmployeeDepartmentChange(e) {
+        this.setState({ Department: e.target.value });
+    }
+
+    //Position
+    handleEmployeePositionChange(e) {
+        this.setState({ Position: e.target.value });
+    }
+
+    //Salary
+    handleEmployeeSalaryChange(e) {
+        this.setState({ Salary: e.target.value });
+    }
+
     //Event when button pressed to add employee
     handleSubmit(e) {
-        // alert(this.state.FName + "      " + this.state.SName
-        //     + "       " + this.state.Base64Image);
-        // e.preventDefault();
-
         //To hold the object been sent
         const newEmp = {
             fName: this.state.FName,
             sName: this.state.SName,
-            locImg: this.state.Base64Image
+            locImg: this.state.Base64Image,
+            department: this.state.Department,
+            position: this.state.Position,
+            salary: this.state.Salary
         }
         //Post(to server, this object)
         axios.post('http://localhost:4000/api/employees', newEmp)
@@ -63,7 +81,10 @@ class AddEmployee extends React.Component {
         this.setState({
             FName: '',
             SName: '',
-            Base64Image: ''
+            Base64Image: '',
+            Department: '',
+            Position: '',
+            Salary: ''
         });
     }
 
@@ -92,16 +113,43 @@ class AddEmployee extends React.Component {
                             onChange={this.handleEmployeeSNameChange}
                         ></input>
                     </div>
-                    {/*  */}
+                    {/* Image */}
                     <div>
-
-                    </div>
-                    <div>
-                        <label>Real Image Upload</label>
+                        <label>File Image</label>
                         <input
                             type='file'
                             className='form-control'
                             onChange={this.handleImageChange}
+                        ></input>
+                    </div>
+                    {/* Department */}
+                    <div className='form-group'>
+                        <label>Department</label>
+                        <input
+                            type='text'
+                            className='form-control'
+                            value={this.state.Department}
+                            onChange={this.handleEmployeeDepartmentChange}
+                        ></input>
+                    </div>
+                    {/* Position */}
+                    <div className='form-group'>
+                        <label>Position</label>
+                        <input
+                            type='text'
+                            className='form-control'
+                            value={this.state.Position}
+                            onChange={this.handleEmployeePositionChange}
+                        ></input>
+                    </div>
+                    {/* Salary */}
+                    <div className='form-group'>
+                        <label>Salary</label>
+                        <input
+                            type='text'
+                            className='form-control'
+                            value={this.state.Salary}
+                            onChange={this.handleEmployeeSalaryChange}
                         ></input>
                     </div>
                     <div>
@@ -111,7 +159,6 @@ class AddEmployee extends React.Component {
                         </input>
                     </div>
                 </form>
-                <img src={this.state.Base64Image}></img>
             </div>
         );
     }

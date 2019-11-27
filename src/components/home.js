@@ -6,8 +6,8 @@ class Home extends React.Component {
   render() {
     return (
       <div className="App">
-        <h1>DL Database Interface</h1>
-        <h2>Current time{new Date().toLocaleTimeString()}.</h2>
+        <h1>DL Database Interface</h1> <br/>
+        <h2>Current time{new Date().toLocaleTimeString()}</h2>
       </div>
     );
   }
