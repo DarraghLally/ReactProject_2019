@@ -20,12 +20,19 @@ function App() {
     <BrowserRouter>
       <div className="App">
         <Navbar bg="dark" variant="dark" sticky="top">
-        <Navbar.Brand href="#home">Employee Database</Navbar.Brand>
+          <Navbar.Brand href="/">Employee Database</Navbar.Brand>
           <Nav className="mr-auto">
             <Nav.Link href="/">Home</Nav.Link>
             <Nav.Link href="/currentEmployees">Current Employee's</Nav.Link>
             <Nav.Link href="/addEmployee">Add Employee</Nav.Link>
             <Nav.Link href="/search">Search</Nav.Link>
+          </Nav>
+          <Nav>
+            <Navbar.Collapse className="justify-content-end">
+              <Navbar.Text>
+                {new Date().toLocaleTimeString()}
+              </Navbar.Text>
+            </Navbar.Collapse>
           </Nav>
         </Navbar>
         <Switch>

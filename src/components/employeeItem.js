@@ -28,10 +28,10 @@ class EmployeeItem extends React.Component {
           <Card.Body>
             <Card.Title></Card.Title>        
             <Card.Text>
-              Name: {this.props.employee.fName} {this.props.employee.sName} <br/>
-              Department: {this.props.employee.department} <br/>
-              Position: {this.props.employee.position} <br/>
-              Salary: {this.props.employee.salary}
+              <b>Name:</b> {this.props.employee.fName} {this.props.employee.sName} <br/>
+              <b>Department:</b> {this.props.employee.department} <br/>
+              <b>Position:</b> {this.props.employee.position} <br/>
+              <b>Salary:</b> {this.props.employee.salary}
             </Card.Text>
           </Card.Body>            
             <Link to ={"/edit/"+this.props.employee._id} className="btn btn-primary" >Edit</Link>
