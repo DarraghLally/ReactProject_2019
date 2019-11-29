@@ -22,7 +22,6 @@ function App() {
         <Navbar bg="dark" variant="dark" sticky="top">
           <Navbar.Brand href="/">Employee Database</Navbar.Brand>
           <Nav className="mr-auto">
-            <Nav.Link href="/">Home</Nav.Link>
             <Nav.Link href="/currentEmployees">Current Employee's</Nav.Link>
             <Nav.Link href="/addEmployee">Add Employee</Nav.Link>
             <Nav.Link href="/search">Search</Nav.Link>

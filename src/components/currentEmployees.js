@@ -1,6 +1,9 @@
 import React from 'react'
 import Employees from './employees';
 import axios from 'axios'; //for mongo
+import Container from 'react-bootstrap/Container'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
 
 class CurrentEmployees extends React.Component {
 
@@ -21,8 +24,16 @@ class CurrentEmployees extends React.Component {
     render() {
         return (
             <div>
-                <h1>Current Employees</h1>
-                <Employees myEmployees={this.state.employees}></Employees>
+                <container>
+                    <Row>
+                        <Col></Col>
+                        <Col>
+                            <Employees myEmployees={this.state.employees}></Employees>
+                        </Col>
+                        <Col></Col>
+                    </Row>
+                </container>
+
             </div>
         );
     }

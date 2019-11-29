@@ -4,6 +4,9 @@ import Axios from 'axios';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import { Link } from 'react-router-dom';
+import Container from 'react-bootstrap/Container'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
 
 class Search extends React.Component {
     constructor(props) {
@@ -46,41 +49,60 @@ class Search extends React.Component {
 
     render() {
         return (
+
             <div className="App">
                 <br />
-                <div>
-                    <form onSubmit={this.handleSubmit}>
-                        <div>
-                            <input
-                                type="text"
-                                placeholder="Search"
-                                onChange={this.handleSubmitSearchEmployee}
-                            ></input>
-                            <input
-                                type="submit"
-                                value="Search"
-                            ></input>
-                        </div>
-                    </form>
-                </div>
+                <br />
+
 
                 <div>
-                    <div className="App">
-                        <Card style={{ width: '18rem' }}>
-                            <Card.Img className="defaultImage" variant="top" border-radius="8px" width="100px" height="100px" src={this.state.employees.locImg} />
-                            <Card.Body>
-                                <Card.Title></Card.Title>
-                                <Card.Text>
-                                    <b>Name:</b>  {this.state.employees.fName} {this.state.employees.sName}<br />
-                                    <b>Department:</b>  {this.state.employees.department}<br />
-                                    <b>Position:</b>  {this.state.employees.position}<br />
-                                    <b>Salary:</b> {this.state.employees.salary}
-                                </Card.Text>
-                            </Card.Body>
-                            <Link to={"/edit/" + this.state.employees._id} className="btn btn-primary" >Edit</Link>
-                            <Button className='btn btn-primary' variant="danger" onClick={this.deleteEmployee} >Delete</Button>
-                        </Card>
-                    </div>
+                    <container>
+                        <Row>
+                            <Col></Col>
+                            <Col>
+                                <div>
+                                    <form onSubmit={this.handleSubmit}>
+                                        <div>
+                                            <input
+                                                type="text"
+                                                placeholder="Search"
+                                                onChange={this.handleSubmitSearchEmployee}
+                                            ></input>
+                                            <input
+                                                type="submit"
+                                                value="Search"
+                                            ></input>
+                                        </div>
+                                    </form>
+                                </div>
+                            </Col>
+                            <Col></Col>
+                        </Row>
+                        <Row><br></br></Row>
+                        <Row>
+                            <Col></Col>
+                            <Col>
+                                <Card style={{ width: '18rem' }}>
+                                    <Card.Img className="defaultImage" variant="top" border-radius="8px" width="100px" height="100px" src={this.state.employees.locImg} />
+                                    <Card.Body>
+                                        <Card.Title></Card.Title>
+                                        <Card.Text>
+                                            <b>Name:</b>  {this.state.employees.fName} {this.state.employees.sName}<br />
+                                            <b>Department:</b>  {this.state.employees.department}<br />
+                                            <b>Position:</b>  {this.state.employees.position}<br />
+                                            <b>Salary:</b> {this.state.employees.salary}
+                                        </Card.Text>
+                                    </Card.Body>
+                                    <Link to={"/edit/" + this.state.employees._id} className="btn btn-primary" >Edit</Link>
+                                    <Button className='btn btn-primary' variant="danger" onClick={this.deleteEmployee} >Delete</Button>
+
+                                </Card>
+
+                            </Col>
+                            <Col></Col>
+
+                        </Row>
+                    </container>
                 </div>
             </div>
         );

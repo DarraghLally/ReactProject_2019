@@ -1,5 +1,8 @@
 import React from 'react';
 import axios from 'axios'; //Added for mongo
+import Container from 'react-bootstrap/Container'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
 
 class AddEmployee extends React.Component {
     constructor(props) {
@@ -90,73 +93,80 @@ class AddEmployee extends React.Component {
     render() {
         return (
             <div>
-                <form onSubmit={this.handleSubmit}>
-                    {/* First Name */}
-                    <div className='form-group'>
-                        <label>First Name:</label>
-                        <input
-                            type='text'
-                            className='form-control'
-                            value={this.state.FName}
-                            onChange={this.handleEmployeeFNameChange}
-                        ></input>
-                    </div>
-                    {/* Surname */}
-                    <div className='form-group'>
-                        <label>Surname</label>
-                        <input
-                            type='text'
-                            className='form-control'
-                            value={this.state.SName}
-                            onChange={this.handleEmployeeSNameChange}
-                        ></input>
-                    </div>
-                    {/* Image */}
-                    <div>
-                        <label>File Image</label>
-                        <input
-                            type='file'
-                            className='form-control'
-                            onChange={this.handleImageChange}
-                        ></input>
-                    </div>
-                    {/* Department */}
-                    <div className='form-group'>
-                        <label>Department</label>
-                        <input
-                            type='text'
-                            className='form-control'
-                            value={this.state.Department}
-                            onChange={this.handleEmployeeDepartmentChange}
-                        ></input>
-                    </div>
-                    {/* Position */}
-                    <div className='form-group'>
-                        <label>Position</label>
-                        <input
-                            type='text'
-                            className='form-control'
-                            value={this.state.Position}
-                            onChange={this.handleEmployeePositionChange}
-                        ></input>
-                    </div>
-                    {/* Salary */}
-                    <div className='form-group'>
-                        <label>Salary</label>
-                        <input
-                            type='text'
-                            className='form-control'
-                            value={this.state.Salary}
-                            onChange={this.handleEmployeeSalaryChange}
-                        ></input>
-                    </div>
-                    <div>
-                        <input
-                            type="submit"
-                            value="Add Employee">
-                        </input>
-                    </div>
-                </form>
+                <container>
+                    <Row>
+                        <Col>
+                            <form onSubmit={this.handleSubmit}>
+                                {/* First Name */}
+                                <div className='form-group'>
+                                    <label>First Name:</label>
+                                    <input
+                                        type='text'
+                                        className='form-control'
+                                        value={this.state.FName}
+                                        onChange={this.handleEmployeeFNameChange}
+                                    ></input>
+                                </div>
+                                {/* Surname */}
+                                <div className='form-group'>
+                                    <label>Surname</label>
+                                    <input
+                                        type='text'
+                                        className='form-control'
+                                        value={this.state.SName}
+                                        onChange={this.handleEmployeeSNameChange}
+                                    ></input>
+                                </div>
+                                {/* Image */}
+                                <div>
+                                    <label>File Image</label>
+                                    <input
+                                        type='file'
+                                        className='form-control'
+                                        onChange={this.handleImageChange}
+                                    ></input>
+                                </div>
+                                {/* Department */}
+                                <div className='form-group'>
+                                    <label>Department</label>
+                                    <input
+                                        type='text'
+                                        className='form-control'
+                                        value={this.state.Department}
+                                        onChange={this.handleEmployeeDepartmentChange}
+                                    ></input>
+                                </div>
+                                {/* Position */}
+                                <div className='form-group'>
+                                    <label>Position</label>
+                                    <input
+                                        type='text'
+                                        className='form-control'
+                                        value={this.state.Position}
+                                        onChange={this.handleEmployeePositionChange}
+                                    ></input>
+                                </div>
+                                {/* Salary */}
+                                <div className='form-group'>
+                                    <label>Salary</label>
+                                    <input
+                                        type='text'
+                                        className='form-control'
+                                        value={this.state.Salary}
+                                        onChange={this.handleEmployeeSalaryChange}
+                                    ></input>
+                                </div>
+                                <div>
+                                    <input
+                                        type="submit"
+                                        value="Add Employee">
+                                    </input>
+                                </div>
+                            </form>
+                        </Col>
+                        <Col></Col>
+                    </Row>
+                </container>
             </div>
         );
     }
