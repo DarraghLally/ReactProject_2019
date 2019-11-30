@@ -1,24 +1,27 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../App.css';
 import Axios from 'axios';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import { Link } from 'react-router-dom';
-import Container from 'react-bootstrap/Container'
-import Row from 'react-bootstrap/Row'
-import Col from 'react-bootstrap/Col'
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 class Search extends React.Component {
-    constructor(props) {
+    
+    constructor(props) {  
         super(props);
         this.state = {
             Search: '',
-            employees: []
+            employees: [],
+
         };
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleSubmitSearchEmployee = this.handleSubmitSearchEmployee.bind(this);
         this.deleteEmployee = this.deleteEmployee.bind(this);
     }
+
     //Search
     handleSubmitSearchEmployee(e) {
         this.setState({ Search: e.target.value });
@@ -53,10 +56,8 @@ class Search extends React.Component {
             <div className="App">
                 <br />
                 <br />
-
-
                 <div>
-                    <container>
+                    <Container>
                         <Row>
                             <Col></Col>
                             <Col>
@@ -102,7 +103,7 @@ class Search extends React.Component {
                             <Col></Col>
 
                         </Row>
-                    </container>
+                    </Container>
                 </div>
             </div>
         );

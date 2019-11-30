@@ -93,10 +93,10 @@ class AddEmployee extends React.Component {
     render() {
         return (
             <div>
-                <container>
+                <Container>
                     <Row>
                         <Col>
-                            <form onSubmit={this.handleSubmit}>
+                            <form  onSubmit={this.handleSubmit}>
                                 {/* First Name */}
                                 <div className='form-group'>
                                     <label>First Name:</label>
@@ -166,7 +166,7 @@ class AddEmployee extends React.Component {
                         </Col>
                         <Col></Col>
                     </Row>
-                </container>
+                </Container>
             </div>
         );
     }

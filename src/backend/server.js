@@ -55,7 +55,7 @@ app.post('/api/employees', (req, res) => {
         position: req.body.position,
         salary: req.body.salary
     })
-    res.json("Post Recieved");
+    //res.json("Post Recieved");
 })
 
 //Get employee
@@ -68,7 +68,7 @@ app.get('/api/employees', (req, res, next) => {
 
 //delete
 app.delete('/api/employees/:id', (req, res) => {
-    console.log(req.params.id);
+    //console.log(req.params.id);
     employeeModel.deleteOne({ _id: req.params.id }, (error, data) => {
         if (error) { //error handling 
             res.json(error);
@@ -79,7 +79,7 @@ app.delete('/api/employees/:id', (req, res) => {
 
 //Find by id
 app.get('/api/employees/:id', (req,res)=>{
-    console.log(req.params.id);
+    //console.log(req.params.id);
 
     employeeModel.findById(req.params.id, (error,data)=>{
         res.json(data);
@@ -88,7 +88,7 @@ app.get('/api/employees/:id', (req,res)=>{
 
 //Update
 app.put('/api/employees/:id',(req,res)=>{
-    console.log('EDIT: ' + req.params.id)
+    //console.log('EDIT: ' + req.params.id)
     employeeModel.findByIdAndUpdate(req.params.id, 
         req.body, 
         {new:true}, 
@@ -99,8 +99,8 @@ app.put('/api/employees/:id',(req,res)=>{
 
 //Search
 app.get('/api/search/:employee', (req,res)=>{
-    console.log(req.params.employee);
-
+    //console.log(req.params.employee);
+    //regex to ignore case
     employeeModel.findOne({fName:{$regex: new RegExp(req.params.employee, 'i')}}, (error,data)=>{
         //console.log(data)
         res.json({data});

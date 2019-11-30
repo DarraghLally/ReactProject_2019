@@ -24,7 +24,7 @@ class CurrentEmployees extends React.Component {
     render() {
         return (
             <div>
-                <container>
+                <Container>
                     <Row>
                         <Col></Col>
                         <Col>
@@ -32,7 +32,7 @@ class CurrentEmployees extends React.Component {
                         </Col>
                         <Col></Col>
                     </Row>
-                </container>
+                </Container>
 
             </div>
         );

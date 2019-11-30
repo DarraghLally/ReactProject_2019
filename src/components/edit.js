@@ -1,7 +1,10 @@
 import React from 'react'
 import Employees from './employees';
 import axios from 'axios'; //for mongo
-import  { Redirect } from 'react-router-dom'
+import { Redirect } from 'react-router-dom'
+import Container from 'react-bootstrap/Container'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
 
 class Edit extends React.Component {
     constructor(props) {
@@ -64,7 +67,7 @@ class Edit extends React.Component {
             .catch();
     }
 
-    //Event when button pressed to add movie
+    //Event when button pressed to add employee
     handleSubmit(e) {
         //To hold the object been sent
         const newEmp = {
@@ -75,7 +78,7 @@ class Edit extends React.Component {
             salary: this.state.Salary
         }
         //Post(to server, this object)
-        axios.put('http://localhost:4000/api/employees/'+this.state._id, newEmp)
+        axios.put('http://localhost:4000/api/employees/' + this.state._id, newEmp)
             .then()
             .catch();
         //Reset state
@@ -91,61 +94,69 @@ class Edit extends React.Component {
     render() {
         return (
             <div>
-            <h1>Edit Employee Form</h1>
-            <form onSubmit={this.handleSubmit}>
-                <div className='form-group'>
-                    <label>First Name:</label>
-                    <input
-                        type='text'
-                        className='form-control'
-                        value={this.state.FName}
-                        onChange={this.handleEmployeeFNameChange}
-                    ></input>
-                </div>
-                <div className='form-group'>
-                    <label>Surname</label>
-                    <input
-                        type='text'
-                        className='form-control'
-                        value={this.state.SName}
-                        onChange={this.handleEmployeeSNameChange}
-                    ></input>
-                </div>
-                <div className='form-group'>
-                    <label>Department</label>
-                    <input
-                        type='text'
-                        className='form-control'
-                        value={this.state.Department}
-                        onChange={this.handleEmployeeDepartmentChange}
-                    ></input>
-                </div>
-                <div className='form-group'>
-                    <label>Position</label>
-                    <input
-                        type='text'
-                        className='form-control'
-                        value={this.state.Position}
-                        onChange={this.handleEmployeePositionChange}
-                    ></input>
-                </div>
-                <div className='form-group'>
-                    <label>Salary</label>
-                    <input
-                        type='text'
-                        className='form-control'
-                        value={this.state.Salary}
-                        onChange={this.handleEmployeeSalaryChange}
-                    ></input>
-                </div>
-                <div>
-                    <input
-                        type="submit"
-                        value="Update Employee">
-                    </input>
-                </div>
-            </form>
-        </div>
+                <Container>
+                    <Row>
+                        <Col>
+                            <form onSubmit={this.handleSubmit}>
+                                <div className='form-group'>
+                                    <label>First Name:</label>
+                                    <input
+                                        type='text'
+                                        className='form-control'
+                                        value={this.state.FName}
+                                        onChange={this.handleEmployeeFNameChange}
+                                    ></input>
+                                </div>
+                                <div className='form-group'>
+                                    <label>Surname</label>
+                                    <input
+                                        type='text'
+                                        className='form-control'
+                                        value={this.state.SName}
+                                        onChange={this.handleEmployeeSNameChange}
+                                    ></input>
+                                </div>
+                                <div className='form-group'>
+                                    <label>Department</label>
+                                    <input
+                                        type='text'
+                                        className='form-control'
+                                        value={this.state.Department}
+                                        onChange={this.handleEmployeeDepartmentChange}
+                                    ></input>
+                                </div>
+                                <div className='form-group'>
+                                    <label>Position</label>
+                                    <input
+                                        type='text'
+                                        className='form-control'
+                                        value={this.state.Position}
+                                        onChange={this.handleEmployeePositionChange}
+                                    ></input>
+                                </div>
+                                <div className='form-group'>
+                                    <label>Salary</label>
+                                    <input
+                                        type='text'
+                                        className='form-control'
+                                        value={this.state.Salary}
+                                        onChange={this.handleEmployeeSalaryChange}
+                                    ></input>
+                                </div>
+                                <div>
+                                    <input
+                                        type="submit"
+                                        value="Update Employee">
+                                    </input>
+                                </div>
+                            </form>
+                        </Col>
+                        <Col></Col>
+                        <Col></Col>
+                    </Row>
+                </Container>
+
+            </div>
         )
     }
 

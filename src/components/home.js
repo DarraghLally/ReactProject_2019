@@ -13,7 +13,7 @@ class Home extends React.Component {
     return (
       <section style={sectionStyle}>
         <div className="App">
-         
+
         </div>
       </section>
     );
