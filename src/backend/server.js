@@ -23,12 +23,12 @@ app.use(function (req, res, next) {
 
 //parse application
 app.use(bodyParser.urlencoded({ extended: false }));
-//parse application
 app.use(bodyParser.json());
 
+//
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
 
-//Blue print for the storage of data in our database
+//Blue print for the storage of employee data in db
 const Schema = mongoose.Schema;
 const employeeSchema = new Schema({
     fName: String,
@@ -39,9 +39,8 @@ const employeeSchema = new Schema({
     salary: String
 });
 
-//Emp model
+//Emp models
 const employeeModel = mongoose.model('employee', employeeSchema);
-//const pastEmployeeModel = mongoose.model('pastEmp', employeeSchema);
 
 //Post
 app.post('/api/employees', (req, res) => {
@@ -80,7 +79,6 @@ app.delete('/api/employees/:id', (req, res) => {
 //Find by id
 app.get('/api/employees/:id', (req,res)=>{
     //console.log(req.params.id);
-
     employeeModel.findById(req.params.id, (error,data)=>{
         res.json(data);
     })
@@ -99,7 +97,6 @@ app.put('/api/employees/:id',(req,res)=>{
 
 //Search
 app.get('/api/search/:employee', (req,res)=>{
-    //console.log(req.params.employee);
     //regex to ignore case
     employeeModel.findOne({fName:{$regex: new RegExp(req.params.employee, 'i')}}, (error,data)=>{
         //console.log(data)

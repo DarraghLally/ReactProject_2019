@@ -15,7 +15,6 @@ class Search extends React.Component {
         this.state = {
             Search: '',
             employees: [],
-
         };
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleSubmitSearchEmployee = this.handleSubmitSearchEmployee.bind(this);
@@ -52,7 +51,6 @@ class Search extends React.Component {
 
     render() {
         return (
-
             <div className="App">
                 <br />
                 <br />
@@ -96,12 +94,9 @@ class Search extends React.Component {
                                     </Card.Body>
                                     <Link to={"/edit/" + this.state.employees._id} className="btn btn-primary" >Edit</Link>
                                     <Button className='btn btn-primary' variant="danger" onClick={this.deleteEmployee} >Delete</Button>
-
                                 </Card>
-
                             </Col>
                             <Col></Col>
-
                         </Row>
                     </Container>
                 </div>
